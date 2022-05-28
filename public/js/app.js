@@ -10,8 +10,8 @@ const para = document.querySelector('#weather');
 const image = document.querySelector('#image');
 
 const weatherFunc =  addressLocation => {
-    
-    fetch('http://localhost:3000/weather?address='+addressLocation).then( response =>{
+    // the host will be used
+    fetch('/weather?address='+addressLocation).then( response =>{
     response.json().then( data =>{
         if (data.error){
             return data.error;

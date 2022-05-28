@@ -7,6 +7,8 @@ const app = express();
 const public = path.join(__dirname, '../public');
 const dynamicPath = path.join(__dirname, '../templates/views');
 const partialsPath = path.join(__dirname, '../templates/partials');
+// next line is for Heroku, also in package.json, the scripts is changed
+const port = process.env.PORT || 3000;
 const map_box_api = 'pk.eyJ1IjoicmFqZXNpdGIiLCJhIjoiY2wzbGd3bXQ2MDBhODNqcGZudTNqajY4byJ9.M_-fxihKsHUPRnDt1f6tCw'
 const mapbox_url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Shillong.json?access_token='+map_box_api+'&limit=1&units=f'
 //to make nodemon save changes made to files other than js, use :
@@ -74,7 +76,7 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen('3000', () => {
+app.listen(port, () => {
     
     console.log('Server up on port 3000');
 });
